@@ -3,3 +3,5 @@ dist-newstyle
 
 .direnv
 .envrc
+
+.pre-commit-config.yaml
