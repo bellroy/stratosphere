@@ -26,8 +26,8 @@ instance Property "Value" (Condition a) where
   type PropertyType "Value" (Condition a) = ConditionProperties a
   set newValue Condition {..} = Condition {value = newValue, ..}
 
-instance ToConditionRef (Condition a) b where
-  toConditionRef = ConditionRef . (.logicalName)
+instance ToCRef (Condition a) b where
+  toCRef = CRef . (.logicalName)
 
 conditionToJSON :: (JSON.ToJSON a) => Condition a -> JSON.Value
 conditionToJSON Condition {..} = JSON.toJSON value
