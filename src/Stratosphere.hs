@@ -7,36 +7,34 @@
 -- become unwieldy, and it becomes harder to confidently modify them.
 -- Stratosphere alleviates this issue by providing an Embedded Domain Specific
 -- Language (EDSL) to construct templates.
-
 module Stratosphere
-  (
-    -- * Introduction
+  ( -- * Introduction
     -- $intro
 
     -- * Usage
     -- $usage
-
-    module Exports
-    , awsAccountId
-    , awsNoValue
-    , awsRegion
-    , awsStackId
-    , awsStackName
+    module Exports,
+    awsAccountId,
+    awsNoValue,
+    awsRegion,
+    awsStackId,
+    awsStackName,
   )
 where
 
-import Data.Function                   as Exports ((&), (.), ($))
-import Data.Text                       as Exports (Text)
-import Stratosphere.Check              as Exports
-import Stratosphere.NamedItem          as Exports
-import Stratosphere.Output             as Exports
-import Stratosphere.Parameter          as Exports
-import Stratosphere.Property           as Exports
-import Stratosphere.Resource           as Exports
+import Data.Function as Exports (($), (&), (.))
+import Data.Text as Exports (Text)
+import Stratosphere.Check as Exports
+import Stratosphere.Condition as Exports
+import Stratosphere.NamedItem as Exports
+import Stratosphere.Output as Exports
+import Stratosphere.Parameter as Exports
+import Stratosphere.Property as Exports
+import Stratosphere.Resource as Exports
 import Stratosphere.ResourceProperties as Exports
-import Stratosphere.Tag                as Exports
-import Stratosphere.Template           as Exports
-import Stratosphere.Value              as Exports
+import Stratosphere.Tag as Exports
+import Stratosphere.Template as Exports
+import Stratosphere.Value as Exports
 
 -- | See https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/pseudo-parameter-reference.html
 awsAccountId :: Value Text
