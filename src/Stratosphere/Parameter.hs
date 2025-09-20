@@ -52,7 +52,7 @@ data Parameter =
     -- ^ A string of up to 4000 characters that describes the parameter.
   , constraintDescription :: Maybe Text
     -- ^ A string that explains the constraint when the constraint is violated.
-  } deriving (Show, Eq)
+  } deriving (Show, Eq, Generic)
 
 instance Property "Name" Parameter where
   type PropertyType "Name" Parameter = Text

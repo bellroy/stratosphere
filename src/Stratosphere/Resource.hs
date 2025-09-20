@@ -42,7 +42,7 @@ data Resource = Resource
   , properties     :: ResourceProperties
   , updatePolicy   :: Maybe ResourceAttributes.UpdatePolicy
   }
-  deriving (Show, Eq)
+  deriving (Show, Eq, Generic)
 
 instance Property "Condition" Resource where
   type PropertyType "Condition" Resource = Text

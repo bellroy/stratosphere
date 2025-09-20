@@ -13,7 +13,7 @@ import qualified Data.Aeson as JSON
 data AutoScalingReplacingUpdatePolicy = AutoScalingReplacingUpdatePolicy
   { willReplace :: Maybe (Value Bool)
   }
-  deriving (Show, Eq)
+  deriving (Show, Eq, Generic)
 
 instance JSON.ToJSON AutoScalingReplacingUpdatePolicy where
   toJSON AutoScalingReplacingUpdatePolicy{..}

@@ -16,7 +16,7 @@ data ResourceProperties
   , properties   :: JSON.Object
   , supportsTags :: Bool
   }
-  deriving (Show, Eq)
+  deriving (Show, Eq, Generic)
 
 class ToResourceProperties a where
   toResourceProperties :: a -> ResourceProperties

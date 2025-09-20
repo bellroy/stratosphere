@@ -27,7 +27,7 @@ import qualified Data.Aeson as JSON
 data AutoScalingScheduledActionPolicy = AutoScalingScheduledActionPolicy
   { ignoreUnmodifiedGroupSizeProperties :: Maybe (Value Bool)
   }
-  deriving (Show, Eq)
+  deriving (Show, Eq, Generic)
 
 instance Property "IgnoreUnmodifiedGroupSizeProperties" AutoScalingScheduledActionPolicy where
   type PropertyType "IgnoreUnmodifiedGroupSizeProperties" AutoScalingScheduledActionPolicy = Value Bool

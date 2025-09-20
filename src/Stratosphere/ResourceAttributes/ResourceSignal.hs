@@ -12,7 +12,7 @@ data ResourceSignal = ResourceSignal
   { count   :: Maybe (Value Integer)
   , timeout :: Maybe (Value Text)
   }
-  deriving (Show, Eq)
+  deriving (Show, Eq, Generic)
 
 instance JSON.ToJSON ResourceSignal where
   toJSON ResourceSignal{..}

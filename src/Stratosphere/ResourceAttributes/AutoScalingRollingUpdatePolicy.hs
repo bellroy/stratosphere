@@ -19,7 +19,7 @@ data AutoScalingRollingUpdatePolicy = AutoScalingRollingUpdatePolicy
   , suspendProcesses              :: Maybe (ValueList Text)
   , waitOnResourceSignals         :: Maybe (Value Bool)
   }
-  deriving (Show, Eq)
+  deriving (Show, Eq, Generic)
 
 instance Property "MaxBatchSize" AutoScalingRollingUpdatePolicy where
   type PropertyType "MaxBatchSize" AutoScalingRollingUpdatePolicy = Value Integer

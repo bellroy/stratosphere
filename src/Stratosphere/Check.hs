@@ -14,7 +14,7 @@ import Stratosphere.Template
 import qualified Data.Map.Strict as Map
 
 newtype DuplicateProperty = DuplicateProperty Text
-  deriving (Show, Eq)
+  deriving (Show, Eq, Generic)
 
 duplicateProperties :: Template -> [DuplicateProperty]
 duplicateProperties =

@@ -47,7 +47,7 @@ data Output = Output
     -- parameter references, pseudo parameters, a mapping value, and intrinsic
     -- functions.
   , export :: Maybe OutputExport
-  } deriving (Show, Eq)
+  } deriving (Show, Eq, Generic)
 
 instance ToRef Output b where
   toRef Output{..} = Ref name
