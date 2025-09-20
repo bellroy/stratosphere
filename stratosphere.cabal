@@ -1,141 +1,160 @@
-cabal-version: 1.12
+cabal-version:      1.12
 
 -- This file has been generated from package.yaml by hpack version 0.35.1.
 --
 -- see: https://github.com/sol/hpack
 
-name:           stratosphere
-version:        1.0.0
-synopsis:       EDSL for AWS CloudFormation
-description:    EDSL for AWS CloudFormation
-category:       AWS, Cloud
-stability:      experimental
-homepage:       https://github.com/mbj/stratosphere#readme
-bug-reports:    https://github.com/mbj/stratosphere/issues
-maintainer:     Markus Schirp
-license:        MIT
-build-type:     Simple
+name:               stratosphere
+version:            1.0.0
+synopsis:           EDSL for AWS CloudFormation
+description:        EDSL for AWS CloudFormation
+category:           AWS, Cloud
+stability:          experimental
+homepage:           https://github.com/mbj/stratosphere#readme
+bug-reports:        https://github.com/mbj/stratosphere/issues
+maintainer:         Markus Schirp
+license:            MIT
+build-type:         Simple
 extra-source-files:
-    CHANGELOG.md
-    LICENSE.md
-    README.md
+  CHANGELOG.md
+  LICENSE.md
+  README.md
 
 source-repository head
-  type: git
+  type:     git
   location: https://github.com/mbj/stratosphere
 
 flag development
   description: Run GHC with development flags
-  manual: True
-  default: False
+  manual:      True
+  default:     False
 
 library
   exposed-modules:
-      Paths_stratosphere
-      Stratosphere
-      Stratosphere.Check
-      Stratosphere.NamedItem
-      Stratosphere.Output
-      Stratosphere.Parameter
-      Stratosphere.Prelude
-      Stratosphere.Property
-      Stratosphere.Resource
-      Stratosphere.ResourceAttributes.AutoScalingReplacingUpdatePolicy
-      Stratosphere.ResourceAttributes.AutoScalingRollingUpdatePolicy
-      Stratosphere.ResourceAttributes.AutoScalingScheduledActionPolicy
-      Stratosphere.ResourceAttributes.CreationPolicy
-      Stratosphere.ResourceAttributes.ResourceSignal
-      Stratosphere.ResourceAttributes.UpdatePolicy
-      Stratosphere.ResourceProperties
-      Stratosphere.Tag
-      Stratosphere.Template
-      Stratosphere.Value
-  hs-source-dirs:
-      gen
-      src
+    Paths_stratosphere
+    Stratosphere
+    Stratosphere.Check
+    Stratosphere.NamedItem
+    Stratosphere.Output
+    Stratosphere.Parameter
+    Stratosphere.Prelude
+    Stratosphere.Property
+    Stratosphere.Resource
+    Stratosphere.ResourceAttributes.AutoScalingReplacingUpdatePolicy
+    Stratosphere.ResourceAttributes.AutoScalingRollingUpdatePolicy
+    Stratosphere.ResourceAttributes.AutoScalingScheduledActionPolicy
+    Stratosphere.ResourceAttributes.CreationPolicy
+    Stratosphere.ResourceAttributes.ResourceSignal
+    Stratosphere.ResourceAttributes.UpdatePolicy
+    Stratosphere.ResourceProperties
+    Stratosphere.Tag
+    Stratosphere.Template
+    Stratosphere.Value
+
+  hs-source-dirs:     gen src
   default-extensions:
-      DataKinds
-      DeriveGeneric
-      DerivingStrategies
-      DerivingVia
-      DuplicateRecordFields
-      FlexibleContexts
-      FlexibleInstances
-      GADTs
-      GeneralizedNewtypeDeriving
-      InstanceSigs
-      LambdaCase
-      MultiParamTypeClasses
-      NoFieldSelectors
-      NoImplicitPrelude
-      NumericUnderscores
-      OverloadedLists
-      OverloadedRecordDot
-      OverloadedStrings
-      PolyKinds
-      RecordWildCards
-      ScopedTypeVariables
-      StandaloneDeriving
-      Strict
-      TemplateHaskell
-      TupleSections
-      TypeApplications
-      TypeFamilies
-  ghc-options: -Wall -Wcompat -Widentities -Wimplicit-prelude -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-local-signatures -Wmissing-signatures -Wmonomorphism-restriction -Wredundant-constraints -fhide-source-paths -funbox-strict-fields -optP-Wno-nonportable-include-path
+    DataKinds
+    DeriveGeneric
+    DerivingStrategies
+    DerivingVia
+    DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
+    GADTs
+    GeneralizedNewtypeDeriving
+    InstanceSigs
+    LambdaCase
+    MultiParamTypeClasses
+    NoFieldSelectors
+    NoImplicitPrelude
+    NumericUnderscores
+    OverloadedLists
+    OverloadedRecordDot
+    OverloadedStrings
+    PolyKinds
+    RecordWildCards
+    ScopedTypeVariables
+    StandaloneDeriving
+    Strict
+    TemplateHaskell
+    TupleSections
+    TypeApplications
+    TypeFamilies
+
+  ghc-options:
+    -Wall -Wcompat -Widentities -Wimplicit-prelude
+    -Wincomplete-record-updates -Wincomplete-uni-patterns
+    -Wmissing-local-signatures -Wmissing-signatures
+    -Wmonomorphism-restriction -Wredundant-constraints
+    -fhide-source-paths -funbox-strict-fields
+    -optP-Wno-nonportable-include-path
+
   build-depends:
-      aeson >=2
-    , aeson-pretty >=0.8
-    , base >=4.8
+      aeson             >=2
+    , aeson-pretty      >=0.8
+    , base              >=4.8
     , bytestring
     , containers
     , mono-traversable
-    , text >=1.1
-  default-language: Haskell2010
+    , text              >=1.1
+
+  default-language:   Haskell2010
+
   if flag(development)
     ghc-options: -Werror
+
   else
     ghc-options: -Wwarn
 
 test-suite spec
-  type: exitcode-stdio-1.0
-  main-is: Spec.hs
+  type:               exitcode-stdio-1.0
+  main-is:            Spec.hs
   other-modules:
-      Stratosphere.ValuesSpec
-      Paths_stratosphere
-  hs-source-dirs:
-      test
+    Paths_stratosphere
+    Stratosphere.ValuesSpec
+
+  hs-source-dirs:     test
   default-extensions:
-      DataKinds
-      DeriveGeneric
-      DerivingStrategies
-      DerivingVia
-      DuplicateRecordFields
-      FlexibleContexts
-      FlexibleInstances
-      GADTs
-      GeneralizedNewtypeDeriving
-      InstanceSigs
-      LambdaCase
-      MultiParamTypeClasses
-      NoFieldSelectors
-      NoImplicitPrelude
-      NumericUnderscores
-      OverloadedLists
-      OverloadedRecordDot
-      OverloadedStrings
-      PolyKinds
-      RecordWildCards
-      ScopedTypeVariables
-      StandaloneDeriving
-      Strict
-      TemplateHaskell
-      TupleSections
-      TypeApplications
-      TypeFamilies
-  ghc-options: -Wall -Wcompat -Widentities -Wimplicit-prelude -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-local-signatures -Wmissing-signatures -Wmonomorphism-restriction -Wredundant-constraints -fhide-source-paths -funbox-strict-fields -optP-Wno-nonportable-include-path
+    DataKinds
+    DeriveGeneric
+    DerivingStrategies
+    DerivingVia
+    DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
+    GADTs
+    GeneralizedNewtypeDeriving
+    InstanceSigs
+    LambdaCase
+    MultiParamTypeClasses
+    NoFieldSelectors
+    NoImplicitPrelude
+    NumericUnderscores
+    OverloadedLists
+    OverloadedRecordDot
+    OverloadedStrings
+    PolyKinds
+    RecordWildCards
+    ScopedTypeVariables
+    StandaloneDeriving
+    Strict
+    TemplateHaskell
+    TupleSections
+    TypeApplications
+    TypeFamilies
+
+  ghc-options:
+    -Wall -Wcompat -Widentities -Wimplicit-prelude
+    -Wincomplete-record-updates -Wincomplete-uni-patterns
+    -Wmissing-local-signatures -Wmissing-signatures
+    -Wmonomorphism-restriction -Wredundant-constraints
+    -fhide-source-paths -funbox-strict-fields
+    -optP-Wno-nonportable-include-path
+
+  build-tool-depends: hspec-discover:hspec-discover
   build-depends:
-      aeson >=2
-    , aeson-pretty >=0.8
+      aeson             >=2
+    , aeson-pretty      >=0.8
     , base
     , bytestring
     , containers
@@ -143,9 +162,12 @@ test-suite spec
     , hspec-discover
     , mono-traversable
     , stratosphere
-    , text >=1.1
-  default-language: Haskell2010
+    , text              >=1.1
+
+  default-language:   Haskell2010
+
   if flag(development)
     ghc-options: -Werror
+
   else
     ghc-options: -Wwarn

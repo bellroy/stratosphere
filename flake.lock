@@ -114,9 +114,25 @@
         "type": "indirect"
       }
     },
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1758341582,
+        "narHash": "sha256-aFQg3hAz3Q3OJV0x4V4Tv82P8Uo2EmwhRcHnxPSI4bI=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "b96c6f0150c5c0f58d44043fab29e2958ac358b3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
-        "bellroy-nix-foss": "bellroy-nix-foss"
+        "bellroy-nix-foss": "bellroy-nix-foss",
+        "nixpkgs": "nixpkgs_2"
       }
     },
     "systems": {

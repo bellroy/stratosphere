@@ -1,0 +1,9 @@
+packages:
+  .
+  generator
+program-options
+  ghc-options: -Werror
+
+constraints:
+  crypton -support_aesni
+tests: True
