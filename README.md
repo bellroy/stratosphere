@@ -13,15 +13,15 @@ them and help ensure correctness.
 
 The goals of stratosphere are to:
 
-* Build a Haskell EDSL to specify CloudFormation templates. Since it is
+- Build a Haskell EDSL to specify CloudFormation templates. Since it is
   embedded in Haskell, it is type-checked and generally much easier to work
   with than raw JSON/YAML.
-* Have a simple checking/linting system outside of the types that can find
+- Have a simple checking/linting system outside of the types that can find
   common errors in templates.
 
 ## Funding / Sponsoring
 
-This library is maintained by [mbj](https://github.com/sponsors/mbj) and any pledge is greatly apprechiated.
+This library is maintained by [mbj](https://github.com/sponsors/mbj) and any pledge is greatly appreciated.
 
 ## Example
 
@@ -134,13 +134,22 @@ Feel free to raise any issues, or even just make suggestions, by filing a Github
 
 ## Future Work
 
-* Implement basic checker for things like undefined Refs and duplicate field
+- Implement basic checker for things like undefined Refs and duplicate field
   names. This stuff would be too unwieldy to do in types, and performing a
   checking pass over a template should be pretty straightforward.
 
 ## Development Build
 
-```
+With `stack`:
+
+```bash
 # warning takes a while ;)
-STACK_YAML=stack-9.2.yaml stack build --copy-bins --test stratosphere-generator
+STACK_YAML=stack-9.8.yaml stack build --copy-bins --test stratosphere-generator
+```
+
+With `cabal`:
+
+```bash
+# doesn't take a while :)
+cabal run stratosphere-generator -- --copy-bins --test
 ```
