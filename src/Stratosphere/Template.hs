@@ -19,7 +19,6 @@ import Stratosphere.Parameter
 import Stratosphere.Prelude
 import Stratosphere.Property
 import Stratosphere.Resource
-import Prelude
 
 type Mapping = Map Text Object
 
@@ -97,8 +96,8 @@ instance Property "Resources" Template where
 
 instance JSON.ToJSON Template where
   toJSON =
-    JSON.genericToJSON $
-      JSON.defaultOptions
+    JSON.genericToJSON
+      $ JSON.defaultOptions
         { JSON.fieldLabelModifier = upperHead,
           JSON.omitNothingFields = True
         }

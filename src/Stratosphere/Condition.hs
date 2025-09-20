@@ -11,11 +11,10 @@ import Stratosphere.NamedItem
 import Stratosphere.Prelude
 import Stratosphere.Property
 import Stratosphere.Value
-import Prelude
 
 data Condition = Condition
   { logicalName :: Text,
-    value :: Value Text
+    value :: Value Bool
   }
   deriving (Show, Eq, Generic)
 
@@ -24,7 +23,7 @@ instance Property "LogicalName" Condition where
   set newValue Condition {..} = Condition {logicalName = newValue, ..}
 
 instance Property "Value" Condition where
-  type PropertyType "Value" Condition = Value Text
+  type PropertyType "Value" Condition = Value Bool
   set newValue Condition {..} = Condition {value = newValue, ..}
 
 instance ToRef Condition b where
