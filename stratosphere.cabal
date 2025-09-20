@@ -35,6 +35,7 @@ library
     Stratosphere
     Stratosphere.Check
     Stratosphere.Condition
+    Stratosphere.ConditionProperties
     Stratosphere.NamedItem
     Stratosphere.Output
     Stratosphere.Parameter

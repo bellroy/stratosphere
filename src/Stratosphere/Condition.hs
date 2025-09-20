@@ -7,46 +7,46 @@ where
 
 import qualified Data.Aeson as JSON
 import GHC.Exts (IsList (..))
+import Stratosphere.ConditionProperties
 import Stratosphere.NamedItem
 import Stratosphere.Prelude
 import Stratosphere.Property
-import Stratosphere.Value
 
-data Condition = Condition
+data Condition a = Condition
   { logicalName :: Text,
-    value :: Value Bool
+    value :: ConditionProperties a
   }
   deriving (Show, Eq, Generic)
 
-instance Property "LogicalName" Condition where
-  type PropertyType "LogicalName" Condition = Text
+instance Property "LogicalName" (Condition a) where
+  type PropertyType "LogicalName" (Condition a) = Text
   set newValue Condition {..} = Condition {logicalName = newValue, ..}
 
-instance Property "Value" Condition where
-  type PropertyType "Value" Condition = Value Bool
+instance Property "Value" (Condition a) where
+  type PropertyType "Value" (Condition a) = ConditionProperties a
   set newValue Condition {..} = Condition {value = newValue, ..}
 
-instance ToRef Condition b where
-  toRef = Ref . (.logicalName)
+instance ToConditionRef (Condition a) b where
+  toConditionRef = ConditionRef . (.logicalName)
 
-conditionToJSON :: Condition -> JSON.Value
+conditionToJSON :: (JSON.ToJSON a) => Condition a -> JSON.Value
 conditionToJSON Condition {..} = JSON.toJSON value
 
 -- | Wrapper around a list of 'Conditions's to we can modify the aeson instances.
-newtype Conditions = Conditions {conditionList :: [Condition]}
+newtype Conditions a = Conditions {conditionList :: [Condition a]}
   deriving stock (Show, Eq)
   deriving newtype (Monoid, MonoFunctor, Semigroup)
 
-type instance Element Conditions = Condition
+type instance Element (Conditions a) = Condition a
 
-instance IsList Conditions where
-  type Item Conditions = Condition
+instance IsList (Conditions a) where
+  type Item (Conditions a) = Condition a
   fromList = Conditions
   toList = (.conditionList)
 
-instance NamedItem Condition where
+instance (JSON.ToJSON a) => NamedItem (Condition a) where
   itemName = (.logicalName)
   nameToJSON = conditionToJSON
 
-instance JSON.ToJSON Conditions where
+instance (JSON.ToJSON a) => JSON.ToJSON (Conditions a) where
   toJSON = namedItemToJSON . (.conditionList)

@@ -29,7 +29,7 @@ data Template
     -- creation or update. For example, you could conditionally create a
     -- resource that depends on whether the stack is for a production or test
     -- environment.
-    conditions :: Maybe Conditions,
+    conditions :: Maybe (Conditions Text),
     -- | A text string that describes the template. This section must always
     -- follow the template format version section.
     description :: Maybe Text,
@@ -63,15 +63,15 @@ data Template
   deriving (Show, Eq, Generic)
 
 instance Property "Conditions" Template where
-  type PropertyType "Conditions" Template = Conditions
+  type PropertyType "Conditions" Template = Conditions Text
   set newValue Template {..} = Template {conditions = pure newValue, ..}
 
 instance Property "Description" Template where
   type PropertyType "Description" Template = Text
   set newValue Template {..} = Template {description = pure newValue, ..}
 
-instance Property "FormatVersion" Template where
-  type PropertyType "FormatVersion" Template = Text
+instance Property "AWSTemplateFormatVersion" Template where
+  type PropertyType "AWSTemplateFormatVersion" Template = Text
   set newValue Template {..} = Template {formatVersion = pure newValue, ..}
 
 instance Property "Mappings" Template where
