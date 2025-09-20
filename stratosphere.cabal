@@ -34,6 +34,7 @@ library
     Paths_stratosphere
     Stratosphere
     Stratosphere.Check
+    Stratosphere.Condition
     Stratosphere.NamedItem
     Stratosphere.Output
     Stratosphere.Parameter
