@@ -38,6 +38,7 @@ data Template
     -- WSDL version. The template format version can change independently of
     -- the API and WSDL versions.
     formatVersion :: Maybe Text,
+    globals :: Maybe Object,
     -- | A mapping of keys and associated values that you can use to specify
     -- conditional parameter values, similar to a lookup table. You can match a
     -- key to a corresponding value by using the Fn::FindInMap intrinsic
@@ -113,13 +114,14 @@ instance JSON.ToJSON Template where
 mkTemplate :: Resources -> Template
 mkTemplate resources =
   Template
-    { formatVersion = Nothing,
+    { conditions = Nothing,
       description = Nothing,
-      metadata = Nothing,
-      parameters = Nothing,
+      formatVersion = Nothing,
+      globals = Nothing,
       mappings = Nothing,
-      conditions = Nothing,
+      metadata = Nothing,
       outputs = Nothing,
+      parameters = Nothing,
       ..
     }
 
