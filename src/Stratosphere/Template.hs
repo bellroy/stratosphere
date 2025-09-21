@@ -20,7 +20,7 @@ import Stratosphere.Prelude
 import Stratosphere.Property
 import Stratosphere.Resource
 
-type Mapping = Map Text Object
+type Mapping = Map Text (Map Text Value)
 
 data Template
   = Template
