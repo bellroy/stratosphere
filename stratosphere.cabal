@@ -35,7 +35,6 @@ library
     Stratosphere
     Stratosphere.Check
     Stratosphere.Condition
-    Stratosphere.ConditionProperties
     Stratosphere.NamedItem
     Stratosphere.Output
     Stratosphere.Parameter
@@ -97,6 +96,8 @@ library
     , base              >=4.8
     , bytestring
     , containers
+    , generic-lens      >=2.2.0.0
+    , lens              >=5.3.1
     , mono-traversable
     , text              >=1.1
 

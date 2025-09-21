@@ -98,14 +98,16 @@ instance JSON.ToJSON Template where
   toJSON =
     JSON.genericToJSON
       $ JSON.defaultOptions
-        { JSON.fieldLabelModifier = upperHead,
+        { JSON.fieldLabelModifier = upperHeadAndCorrectFormatVersion,
           JSON.omitNothingFields = True
         }
     where
-      upperHead :: String -> String
-      upperHead = \case
-        (headc : tails) -> Char.toUpper headc : tails
-        other -> other
+      upperHeadAndCorrectFormatVersion :: String -> String
+      upperHeadAndCorrectFormatVersion fieldName
+        | fieldName == "formatVersion" = "AWSTemplateFormatVersion"
+        | otherwise = case fieldName of
+            (headc : tails) -> Char.toUpper headc : tails
+            other -> other
 
 -- | Convenient constructor for 'Template' with required arguments.
 mkTemplate :: Resources -> Template

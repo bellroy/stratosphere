@@ -26,7 +26,6 @@ import Data.Function as Exports (($), (&), (.))
 import Data.Text as Exports (Text)
 import Stratosphere.Check as Exports
 import Stratosphere.Condition as Exports
-import Stratosphere.ConditionProperties as Exports
 import Stratosphere.NamedItem as Exports
 import Stratosphere.Output as Exports
 import Stratosphere.Parameter as Exports
